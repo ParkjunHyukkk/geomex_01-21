@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>지오멕스소프트 html/css 선택자 교육 내용</title>
+    <style>
+        html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, a, img, ol, ul, li, header, nav, section, footer { margin: 0; padding: 0; border: 0;}
+        ol, ul { list-style: none;}
+        a, a:hover {color: #333; text-decoration: none;}
+        table, thead, tbody, tr, th, td {border-collapse: collapse;}
+        button {border: 0; outline: 0; cursor: pointer; transition: 0.3s;}
+        #edu_wrap {width: 80%; margin: 0 auto; box-sizing: border-box; padding: 25px;}
+        
+        .edu_box {box-sizing: border-box; padding: 15px; border: 1px solid #ddd; margin-top: 15px;}
+        .edu_box .box > .title {margin: 15px 0;}
+        .edu_box .list > li {padding: 5px 0;}
+        .edu_box .list > li:before {content: "❗"; display: inline-block; width: 15px; height: 15px;}
+        
+        .ex_box {box-sizing: border-box; padding: 15px; background-color: #f1f1f1;}
+        .ex_box .ex_list .e {text-indent: 15px;}
+        .ex_box .ex_list .x {color: red;}
+        
+        .ex_1 .title:before {content: "😎"; display: inline-block; width: 20px; height: 20px; margin-right: 10px;}
+        .ex_1 .title.on:before {content: "😍";}
+        
+        .ex_box .first-child li:first-child{background-color: red;}
+        .ex_box .last-child li:last-child{background-color: red;}
+        .ex_box .nth-child li:nth-child(2n){background-color: red;}
+        
+        .ex_box .checkbox input[type="checkbox"] {display: none;}
+        .ex_box .checkbox input[type="checkbox"] + label {display: inline-block; width: 20px; height: 20px; border: 1px solid #333; border-radius: 3px;}
+        .ex_box .checkbox input[type="checkbox"]:checked + label {background-color: orange;}
+    </style>
+</head>
+<body>
+    <div id="edu_wrap">
+        <img src="http://drive.google.com/uc?export=view&id=1YDH5QRLBm5ykOVru9sOc4X4H9Sr5qT3J" alt="지오멕스소프트">
+        <h1>지오멕스소프트 html/css 선택자 교육 내용</h1>
+        <div class="edu_box">
+            <h2 class="title">선택자</h2>
+            <ul class="list">
+                <li>!important > 인라인스타일 > 아이디(#) > 클래스(.), 요소(ex: div, p 등) 순서로 우선 적용됩니다.</li>
+                <li>아이디는 중복된 이름이 존재할 수 없습니다. 아이디는 한 엘리먼트에 여러개 존재할 수 없습니다. (id="abc def" ❌)</li>
+            </ul>
+        </div>
+        <div class="edu_box">
+            <div class="box">
+                <h2 class="title">가상요소 before, after</h2>
+                <ul class="list">
+                    <li>엘리먼트:before, 엘리먼트:after 형태로 작성합니다.</li>
+                    <li>엘리먼트의 자식요소로 before는 가장 앞에, after는 가장 뒤에 생성됩니다.</li>
+                </ul>
+                <div class="ex_box">
+                    <ul class="ex_list">
+                        <li>&#60;엘리먼트&#62;</li>
+                        <li class="x">::BEFORE</li>
+                        <li class="e">&#60;엘리먼트의 자식&#62;&#60;/엘리먼트의 자식&#62;</li>
+                        <li class="e">&#60;엘리먼트의 자식&#62;&#60;/엘리먼트의 자식&#62;</li>
+                        <li class="e">&#60;엘리먼트의 자식&#62;&#60;/엘리먼트의 자식&#62;</li>
+                        <li class="e">&#60;엘리먼트의 자식&#62;&#60;/엘리먼트의 자식&#62;</li>
+                        <li class="x">::AFTER</li>
+                        <li>&#60;/엘리먼트&#62;</li>
+                    </ul>
+                </div>
+                <ul class="list">
+                    <li>작성방법 : 엘리먼트:after(or before) &#123; content:"내용"; display: block or inline-block; (너비가 필요하다면) &#125;</li>
+                </ul>
+                <div class="ex_box">
+                    <ul class="ex_1">
+                        <li class="title on">제목</li>
+                        <li class="title">제목</li>
+                        <li class="title">제목</li>
+                        <li class="title">제목</li>
+                        <li class="title">제목</li>
+                        <li class="title">제목</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: red;">이모티콘은 가상요소입니다. 개발자도구로 확인하세요!</p>
+                </div>
+            </div>
+        </div>
+        <div class="edu_box">
+            <h2 class="title">first-child, last-child, nth-child</h2>
+            <ul class="list">
+                <li>엘리먼트:first-child, 엘리먼트:last-child, 엘리먼트:nth-child(x) 형태로 작성합니다.</li>
+                <li>fisrt-child는 선택엘리먼트 중 가장 첫번째 엘리먼트를 선택합니다.</li>
+            </ul>
+            <div class="ex_box">
+                <ul class="first-child">
+                    <li>first-child</li>
+                    <li>친구들</li>
+                    <li>친구들</li>
+                    <li>친구들</li>
+                </ul>
+            </div>
+            <ul class="list">
+                <li>last-child는 선택엘리먼트 중 가장 마지막 엘리먼트를 선택합니다.</li>
+            </ul>
+            <div class="ex_box">
+                <ul class="last-child">
+                    <li>친구들</li>
+                    <li>친구들</li>
+                    <li>친구들</li>
+                    <li>last-child</li>
+                </ul>
+            </div>
+            <ul class="list">
+                <li>nth-child는 선택엘리먼트 중 n번째 엘리먼트를 선택합니다.</li>
+            </ul>
+            <div class="ex_box">
+                <ul class="nth-child">
+                    <li>친구들</li>
+                    <li>nth-child(2n)</li>
+                    <li>친구들</li>
+                    <li>nth-child(2n)</li>
+                    <li>친구들</li>
+                    <li>nth-child(2n)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="edu_box">
+            <h2 class="title">+선택자로 체크박스 꾸미기</h2>
+            <ul class="list">
+                <li>&#60;input type="checkbox"&#62;&#60;label for=""&#62;&#60;/label&#62; 순서로 태그를 작성합니다.</li>
+                <li>input 태그를 display: none; 합니다.</li>
+                <li>input + label {} input 바로 뒤 label를 선택하여 꾸밉니다.</li>
+            </ul>
+            <div class="ex_box">
+                <ul class="checkbox">
+                    <li><input type="checkbox" id="a"><label for="a"></label></li>
+                    <li><input type="checkbox" id="b"><label for="b"></label></li>
+                    <li><input type="checkbox" id="c"><label for="c"></label></li>
+                </ul>
+                <p style="margin-top: 15px; color: red;">디자인된 체크박스입니다. 개발자도구로 확인하세요!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
